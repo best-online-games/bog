@@ -29,10 +29,17 @@ namespace $.$$ {
 		land() {
 			const link = this.feedback_land_link()
 			if (link) return this.$.$giper_baza_glob.Land(new $giper_baza_link(link))
-			// Only registry owner can auto-create feedback land
-			// Others must wait for registry sync from network
-			if (!this.is_owner()) return null
+			// Реестр с пресетом [null, post]: ленд для нового feedback_id создаёт
+			// ПЕРВЫЙ посетитель, заход владельца не нужен. На старом read-only
+			// реестре запись доступна только владельцу — поведение как раньше.
+			if (!this.can_registry_post()) return null
 			return this.land_ensure()
+		}
+
+		/** Хватает ли прав записать ссылку нового ленда в реестр. */
+		can_registry_post() {
+			const rank = this.registry_land().pass_rank(this.my_pass())
+			return $giper_baza_rank_tier_of(rank) >= $giper_baza_rank_tier.post
 		}
 
 		@$mol_action
