@@ -1,0 +1,215 @@
+$bog_effects $mol_page
+	title \Нужен ли здесь эффект?
+	body /
+		<= Intro $mol_view
+			sub /
+				<= subtitle \Ответ на хабровскую «Нужен ли здесь useEffect?» — те же 12 сценариев на моле
+				<= Links $mol_view
+					sub /
+						<= Article $mol_link
+							uri \https://habr.com/ru/articles/1055486/
+							sub / <= article_label \Оригинальная статья
+						<= Sources $mol_link
+							uri \https://github.com/b-on-g/bog/tree/master/effects
+							sub / <= sources_label \Исходники демо
+		<= Demo01 $bog_effects_demo01
+		<= Demo02 $bog_effects_demo02
+		<= Demo03 $bog_effects_demo03
+		<= Demo04 $bog_effects_demo04
+		<= Demo05 $bog_effects_demo05
+		<= Demo06 $bog_effects_demo06
+		<= Demo07 $bog_effects_demo07
+		<= Demo08 $bog_effects_demo08
+		<= Demo09 $bog_effects_demo09
+		<= Demo10 $bog_effects_demo10
+		<= Demo11 $bog_effects_demo11
+		<= Demo12 $bog_effects_demo12
+
+$bog_effects_card $mol_view
+	title \
+	descr \
+	body /
+	sub /
+		<= Title $mol_view
+			sub / <= title
+		<= Descr $mol_view
+			sub / <= descr
+		<= Content $mol_view
+			sub <= body /
+
+$bog_effects_demo01 $bog_effects_card
+	title \01. Производное состояние
+	descr \full_name — обычное вычисление из двух полей, без mem и без синхронизации
+	body /
+		<= First $mol_string
+			hint \Имя
+			value? <=> first_name? \Петр
+		<= Last $mol_string
+			hint \Фамилия
+			value? <=> last_name? \Всемогущий
+		<= Full $mol_view
+			sub / <= full_name \
+
+$bog_effects_demo02 $bog_effects_card
+	title \02. Кэш дорогого вычисления
+	descr \mol_mem пересчитывает visible_todos только при смене фильтра (смотри console)
+	body /
+		<= Filter $mol_switch
+			value? <=> filter? \all
+			options *
+				all \Все
+				active \Активные
+		<= List $mol_list
+			rows <= todo_rows /
+	Row* $mol_view
+		sub / <= row_title* \
+
+$bog_effects_demo03 $bog_effects_card
+	title \03. Состояние на сущность
+	descr \У каждого пользователя свой черновик — mem_key хранит его по ключу
+	body /
+		<= User $mol_switch
+			value? <=> user? \anna
+			options *
+				anna \Анна
+				boris \Борис
+				vera \Вера
+		<= Comment $mol_textarea
+			hint \Черновик комментария
+			value? <=> current_comment? \
+
+$bog_effects_demo04 $bog_effects_card
+	title \04. Согласование выбора со списком
+	descr \selection вычисляется из списка — удалил выбранное, оно само стало пустым
+	body /
+		<= List $mol_list
+			rows <= item_rows /
+		<= Selected $mol_view
+			sub / <= selection_label \
+	Row* $mol_view
+		sub /
+			<= Pick* $mol_button_minor
+				click? <=> select*? null
+				sub / <= item_name* \
+			<= Del* $mol_button_minor
+				click? <=> remove*? null
+				sub / <= del_label \✕
+
+$bog_effects_demo05 $bog_effects_card
+	title \05. Общая логика обработчиков
+	descr \Обе кнопки зовут один метод buy — вторая ещё и переходит к оплате
+	body /
+		<= Card $mol_view
+			sub / <= product_title \
+		<= Buttons $mol_view
+			sub /
+				<= ToCart $mol_button_major
+					click? <=> to_cart? null
+					sub / <= cart_label \В корзину
+				<= BuyNow $mol_button_major
+					click? <=> buy_now? null
+					sub / <= buy_label \Купить сейчас
+		<= Status $mol_view
+			sub / <= status \
+
+$bog_effects_demo06 $bog_effects_card
+	title \06. Отправка формы
+	descr \Пока action ждёт ответ — кнопка сама disabled, никакого сигнального состояния
+	body /
+		<= Name $mol_string
+			hint \Имя
+			value? <=> name? \
+		<= Email $mol_string
+			hint \Email
+			value? <=> email? \
+		<= Submit $mol_button_major
+			enabled <= can_submit true
+			click? <=> submit? null
+			sub / <= submit_title \Отправить
+		<= Result $mol_view
+			sub / <= result \
+
+$bog_effects_demo07 $bog_effects_card
+	title \07. Один переход состояния
+	descr \Чистая функция next_state вместо цепочки эффектов на каждый счётчик
+	body /
+		<= Buttons $mol_view
+			sub /
+				<= Normal $mol_button_major
+					enabled <= playable true
+					click? <=> place_normal? null
+					sub / <= normal_label \Обычная карта
+				<= Gold $mol_button_major
+					enabled <= playable true
+					click? <=> place_gold? null
+					sub / <= gold_label \Золотая карта
+		<= Score $mol_view
+			sub / <= score \
+		<= Reset $mol_button_minor
+			click? <=> reset? null
+			sub / <= reset_label \Сброс
+
+$bog_effects_demo08 $bog_effects_card
+	title \08. Родитель узнаёт без уведомлений
+	descr \Тумблер и статус связаны двусторонним биндингом — ни колбэка, ни эффекта
+	body /
+		<= Toggle $mol_check_box
+			checked? <=> light_on? false
+			label / <= toggle_label \Выключатель
+		<= Status $mol_view
+			sub / <= light_status \
+
+$bog_effects_demo09 $bog_effects_card
+	title \09. Ленивая инициализация
+	descr \Панель со счётчиком визитов не считается, пока её не раскрыли (console: init)
+	body /
+		<= Reveal $mol_button_minor
+			click? <=> reveal? null
+			sub / <= reveal_label \Показать счётчик визитов
+		<= Panel $mol_view
+			sub <= panel_content /
+	Visits $mol_view
+		sub / <= visits_label \
+
+$bog_effects_demo10 $bog_effects_card
+	title \10. Внешний источник как свойство
+	descr \Тикающие часы и статус сети — реактивные свойства, подписка происходит при первом чтении
+	body /
+		<= Clock $mol_view
+			sub / <= clock \
+		<= Online $mol_view
+			sub / <= online_label \
+
+$bog_effects_demo11 $bog_effects_card
+	title \11. Зависимости считаются сами
+	descr \Смена темы не пересоздаёт соединение — счётчик переподключений это доказывает
+	body /
+		<= Room $mol_switch
+			value? <=> room? \general
+			options *
+				general \General
+				travel \Travel
+				music \Music
+		<= Theme $mol_switch
+			value? <=> theme? \light
+			options *
+				light \Светлая
+				dark \Тёмная
+		<= Notice $mol_view
+			sub / <= notice \
+		<= Reconnects $mol_view
+			sub / <= reconnects_label \
+
+$bog_effects_demo12 $bog_effects_card
+	title \12. Загрузка данных
+	descr \Пока mem ждёт сеть — mol показывает ожидание, устаревший запрос отменяется
+	body /
+		<= Query $mol_string
+			hint \Поиск товара
+			value? <=> query? \
+		<= Results $mol_list
+			rows <= result_rows /
+		<= Done $mol_view
+			sub / <= done_label \
+	Row* $mol_view
+		sub / <= row_title* \

@@ -176,6 +176,21 @@ sample/**/-view.tree/
 sample/**/-node/
 sample/**/-css/
 
+# Allow effects source code (12 no-useEffect demos for the article)
+!effects/
+!effects/**/
+!effects/**/*.tree
+!effects/**/*.ts
+!effects/**/*.css
+!effects/**/*.html
+!effects/**/*.svg
+!effects/**/*.json
+!effects/**/*.md
+effects/**/-/
+effects/**/-view.tree/
+effects/**/-node/
+effects/**/-css/
+
 # Allow langleak source code ($mol_test locale-leak repro)
 !langleak/
 !langleak/**/
