@@ -1,5 +1,12 @@
 namespace $ {
 
+	export interface $bog_meta_alternate {
+		/** BCP-47-ish language code, or 'x-default'. */
+		lang: string
+		/** Absolute URL of the localized page. */
+		href: string
+	}
+
 	export interface $bog_meta_data {
 		title?: string
 		description?: string
@@ -8,6 +15,8 @@ namespace $ {
 		og_description?: string
 		og_image?: string
 		og_type?: string
+		/** hreflang alternates, emitted as <link rel="alternate" hreflang=…>. */
+		alternates?: $bog_meta_alternate[]
 	}
 
 	export const $bog_meta_attr_name = 'data-bog-meta'
@@ -20,7 +29,8 @@ namespace $ {
 			const v = data[ k ]
 			if( v == null ) continue
 			if( typeof v === 'string' && v.length === 0 ) continue
-			out[ k ] = v
+			if( Array.isArray( v ) && v.length === 0 ) continue
+			out[ k ] = v as any
 			any = true
 		}
 		return any ? out : null
