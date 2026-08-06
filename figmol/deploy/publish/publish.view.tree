@@ -1,0 +1,85 @@
+$bog_figmol_deploy_publish $mol_list
+	- \Repository content: path relative to the root => text of the file.
+	files *
+	- \Repository name. Must be the one the files were generated for.
+	name? \
+	- \Token with the repo and workflow scopes. Kept in this browser.
+	token? \
+	commit_message \Published from Figmol
+	repo_descr \Built with Figmol
+	rows /
+		<= Fields $mol_list
+			rows /
+				<= Token_field $mol_form_field
+					name <= token_name @ \GitHub token
+					control <= Token $mol_string
+						hint \ghp_xxxxxxxxxxxxxxxxxxxx
+						type \password
+						value? <=> token? \
+				<= Token_hint $mol_view
+					sub /
+						<= token_hint @ \Never leaves this browser — the only address it is sent to is api.github.com.
+						<= Token_link $mol_link
+							uri <= token_uri \
+							target \_blank
+							title <= token_link @ \Create a token
+				<= Name_field $mol_form_field
+					name <= name_name @ \Repository
+					bids /
+						<= name_bid \
+					control <= Name $mol_string
+						hint \mysite
+						value? <=> name? \
+				<= Name_hint $mol_view
+					sub /
+						<= name_hint @ \One lowercase word. The site lands on <owner>.github.io/<name>/.
+		<= Buttons $mol_row
+			sub <= buttons /$mol_view
+		<= Conflict $mol_view
+			sub <= conflict_rows /string
+		<= Problem $mol_view
+			sub <= problem_rows /string
+		<= Steps $mol_list
+			rows <= step_rows /$mol_view
+		<= Links $mol_list
+			rows <= link_rows /$mol_view
+	Publish $mol_button_major
+		enabled <= publish_enabled true
+		click? <=> publish? null
+		title <= publish_label @ \Publish
+	Overwrite $mol_button_minor
+		click? <=> overwrite? null
+		title <= overwrite_label @ \Republish into it
+	Step* $mol_row
+		attr *
+			^
+			bog_figmol_deploy_state <= step_state* \wait
+		sub /
+			<= Step_mark* $mol_view
+				sub /
+					<= step_mark* \
+			<= Step_title* $mol_view
+				sub /
+					<= step_title* \
+			<= Step_note* $mol_view
+				sub /
+					<= step_note* \
+	Link* $mol_link
+		uri <= link_uri* \
+		target \_blank
+		title <= link_label* \
+	step_title_login @ \Checking the token
+	step_title_repo @ \Preparing the repository
+	step_title_push @ \Uploading the sources
+	step_title_build @ \Waiting for the build
+	step_title_pages @ \Switching Pages on
+	step_title_live @ \The site is live
+	link_label_site @ \Open the site
+	link_label_repo @ \Open the repository
+	link_label_run @ \Open the build log
+	conflict_hint @ \This account already has a repository with that name. Republishing replaces its files with a new commit — anything committed there by hand is lost.
+	nothing_hint @ \There is nothing to publish yet.
+	token_missing @ \Paste a token first.
+	build_late @ \GitHub did not start a build in time. Open the repository and check the Actions tab.
+	build_bad @ \The build did not succeed — open the log to see why.
+	pages_late @ \Pages did not switch on. Turn them on for the gh-pages branch in the repository settings.

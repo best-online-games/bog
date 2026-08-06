@@ -1,0 +1,64 @@
+$bog_figmol_app_canvas $mol_view
+	store $bog_figmol_store
+	- \A site opened by somebody else's link is drawn, panned and read, never moved
+	editable true
+	tool? \select
+	selected? \
+	- \Node whose caption is being typed right now
+	editing? \
+	- \Viewport transform. Pan is in screen pixels, applied before the scale.
+	zoom? 0.75
+	pan_x? 40
+	pan_y? 40
+	sheet_width 1200
+	sheet_height 1600
+	text_default @ \Text
+	button_default @ \Button
+	attr *
+		^
+		tabindex 0
+		figmol_armed <= armed false
+	style *
+		touch-action \none
+		overscroll-behavior \none
+	event *
+		pointerdown?event <=> pointer_down?event null
+		pointermove?event <=> pointer_move?event null
+		pointerup?event <=> pointer_up?event null
+		pointercancel?event <=> pointer_up?event null
+		lostpointercapture?event <=> pointer_up?event null
+		dblclick?event <=> pointer_edit?event null
+		wheel?event <=> wheel_zoom?event null
+		contextmenu?event <=> context_menu?event null
+	plugins /
+		<= Keys $mol_hotkey
+			key *
+				escape? <=> deselect? null
+				delete? <=> drop? null
+				backspace? <=> drop? null
+	sub /
+		<= World $mol_view
+			style *
+				transform <= world_transform \
+			sub /
+				- \The palette the library blocks paint themselves with. Their own
+				- \default is the dark one, and a sheet is a page of a site — the
+				- \generated project carries the very same attributes.
+				<= Sheet $mol_view
+					attr *
+						^
+						bog_builderui_base \slate
+						bog_builderui_lights \light
+					style *
+						width <= sheet_width_style \
+						minHeight <= sheet_height_style \
+					sub <= shapes /
+	Shape* $bog_figmol_app_canvas_shape
+		store <= store
+		editable <= editable true
+		id <= shape_id* \
+		selected <= shape_selected* false
+		editing <= shape_editing* false
+		dropping <= shape_dropping* false
+		kids <= shape_kids* /$mol_view
+		rect <= shape_rect* /number

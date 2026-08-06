@@ -1,0 +1,67 @@
+$bog_figmol_app $mol_view
+	store $bog_figmol_store
+	title @ \Figmol
+	- \Armed tool: select | text | image | button | rect | frame
+	tool? \select
+	- \Link of the node the canvas frames and the inspector follows
+	selected? \
+	- \Publishing panel takes the right rail over from the inspector
+	publishing? false
+	- \Repository the site is pushed into, and the module name of the sources
+	publish_name? \
+	plugins /
+		<= Theme $bog_theme_auto
+			theme_light \$mol_theme_calm_light
+			theme_dark \$mol_theme_calm_dark
+			themes /
+				\$mol_theme_calm_light
+				\$mol_theme_calm_dark
+	sub /
+		<= Head $mol_view
+			dom_name \header
+			sub <= head_tools /$mol_view
+		<= Editor $mol_view
+			sub <= editor_content /
+	Title $mol_view
+		dom_name \h1
+		sub /
+			<= title
+	Status $giper_baza_status
+	Theme_toggle $bog_theme_toggle
+		theme_auto <= Theme
+	- \Address of this very site for somebody else. Read only for them until the
+	- \owner hands the writing rights out, which is a thing for another day.
+	Share $mol_button_copy
+		text <= share_uri \
+		hint <= share_hint @ \Copy a link that opens this site for reading
+		title <= share_label @ \Share
+	Publish_toggle $mol_button_minor
+		click? <=> publish_toggle? null
+		title <= publish_label @ \Publish
+	Readonly $mol_view
+		sub /
+			<= readonly_label @ \Someone else's site — read only
+	Mine $mol_link
+		arg *
+			site null
+		title <= mine_label @ \My editor
+	Tools $bog_figmol_app_tools
+		tool? <=> tool? \select
+	Side $bog_figmol_app_side
+		store <= store
+		editable <= editable true
+		spot <= drop_spot /number
+		selected? <=> selected? \
+	Canvas $bog_figmol_app_canvas
+		store <= store
+		editable <= editable true
+		tool? <=> tool? \select
+		selected? <=> selected? \
+	Inspector $bog_figmol_app_inspector
+		store <= store
+		selected? <=> selected? \
+	Publish $bog_figmol_deploy_publish
+		files <= publish_files *
+		name? <=> publish_name? \
+	Start $bog_figmol_app_start
+		store <= store

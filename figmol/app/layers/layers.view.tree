@@ -1,0 +1,16 @@
+$bog_figmol_app_layers $mol_view
+	store $bog_figmol_store
+	selected? \
+	sub /
+		<= Head $mol_view
+			sub /
+				<= title @ \Layers
+		<= List $mol_scroll
+			sub /
+				<= Tree $mol_view
+					sub <= rows /
+	Row* $bog_figmol_app_row
+		click? <=> row_click*? null
+		title <= row_title* \
+		active <= row_active* false
+		indent <= row_indent* \

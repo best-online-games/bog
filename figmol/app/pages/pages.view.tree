@@ -1,0 +1,41 @@
+$bog_figmol_app_pages $mol_view
+	store $bog_figmol_store
+	- \Only an editor gets the fields and the buttons; a visitor gets the list
+	editable true
+	- \Cleared whenever the canvas switches to another page
+	selected? \
+	page_default @ \Page
+	sub <= panels /$mol_view
+	Head $mol_view
+		sub <= head_content /$mol_view
+	Caption $mol_view
+		sub /
+			<= title @ \Pages
+	Add $mol_button_minor
+		click? <=> page_add? null
+		hint @ \Add a page
+		sub /
+			<= Add_icon $mol_icon_plus
+	List $mol_view
+		sub <= rows /
+	Field_title $bog_figmol_app_inspector_field
+		title @ \Title
+		content /
+			<= Title $mol_string
+				value? <=> current_title? \
+	Field_slug $bog_figmol_app_inspector_field
+		title @ \Address
+		content /
+			<= Slug $mol_string
+				value? <=> current_slug? \
+				hint @ \empty for the entry page
+	Drop $mol_button_minor
+		click? <=> page_drop? null
+		enabled <= droppable false
+		sub /
+			<= Drop_icon $mol_icon_delete_outline
+			<= drop_label @ \Delete page
+	Row* $bog_figmol_app_row
+		click? <=> page_click*? null
+		title <= page_title* \
+		active <= page_active* false

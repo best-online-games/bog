@@ -1,0 +1,21 @@
+- \Left panel of the editor: what page is open, what can be dropped on it, and
+- \what is already there.
+$bog_figmol_app_side $mol_view
+	store $bog_figmol_store
+	- \A site opened by somebody else's link keeps the lists and loses the palette
+	editable true
+	- \Middle of the viewport in sheet pixels, where a dropped block lands
+	spot /number
+	selected? \
+	sub <= panels /$mol_view
+	Pages $bog_figmol_app_pages
+		store <= store
+		editable <= editable true
+		selected? <=> selected? \
+	Blocks $bog_figmol_app_blocks
+		store <= store
+		spot <= spot /number
+		selected? <=> selected? \
+	Layers $bog_figmol_app_layers
+		store <= store
+		selected? <=> selected? \

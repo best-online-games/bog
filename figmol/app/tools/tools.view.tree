@@ -1,0 +1,28 @@
+$bog_figmol_app_tools $mol_view
+	tool? \select
+	tools /
+		\select
+		\text
+		\image
+		\button
+		\rect
+		\frame
+	hint_select @ \Select
+	hint_text @ \Text
+	hint_image @ \Image
+	hint_button @ \Button
+	hint_rect @ \Rectangle
+	hint_frame @ \Frame
+	sub <= tool_buttons /
+	Tool* $bog_figmol_app_tools_button
+		click? <=> tool_click*? null
+		hint <= tool_hint* \
+		tool <= tool_id* \
+		active <= tool_active* false
+		sub <= tool_content* /
+	Icon_select $mol_icon_cursor_default
+	Icon_text $mol_icon_format_font
+	Icon_image $mol_icon_image
+	Icon_button $mol_icon_gesture_tap
+	Icon_rect $mol_icon_vector_rectangle
+	Icon_frame $mol_icon_crop_free

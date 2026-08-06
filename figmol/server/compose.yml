@@ -1,0 +1,18 @@
+services:
+  figmol-oauth:
+    build: .
+    container_name: figmol-oauth
+    restart: unless-stopped
+    # Bound to the loopback on purpose: nginx terminates TLS and proxies here.
+    # A plain-http OAuth endpoint on the open internet leaks tokens.
+    ports:
+      - "127.0.0.1:9093:9093"
+    environment:
+      FIGMOL_OAUTH_PORT: 9093
+      FIGMOL_OAUTH_CLIENT_ID: ${FIGMOL_OAUTH_CLIENT_ID}
+      FIGMOL_OAUTH_CLIENT_SECRET: ${FIGMOL_OAUTH_CLIENT_SECRET}
+      FIGMOL_OAUTH_ORIGINS: ${FIGMOL_OAUTH_ORIGINS}
+    # One request every few minutes and no state at all — it needs nothing.
+    cpus: 0.25
+    mem_limit: 96m
+    pids_limit: 64

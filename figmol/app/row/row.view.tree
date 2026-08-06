@@ -1,0 +1,12 @@
+- \One line of a side panel list: a full width button that can look current and
+- \can be pushed to the right to show how deep in a tree it sits.
+$bog_figmol_app_row $mol_button_minor
+	active false
+	- \Empty leaves the padding from the style sheet alone
+	indent \
+	minimal_height 24
+	attr *
+		^
+		figmol_active <= active
+	style *
+		paddingLeft <= indent

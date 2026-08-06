@@ -1,0 +1,5 @@
+- \Number field without the step buttons: the inspector panel is too narrow for
+- \them, and the arrow keys they duplicate keep working through $mol_number.
+$bog_figmol_app_inspector_number $mol_number
+	Dec null
+	Inc null

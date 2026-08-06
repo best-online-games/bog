@@ -1,0 +1,3 @@
+include \/mol/offline/install
+include \/bog/figmol/mine
+deploy \/bog/figmol/assets
