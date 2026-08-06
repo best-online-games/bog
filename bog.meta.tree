@@ -28,3 +28,5 @@ pack metrics git \https://github.com/b-on-g/metrics.git
 pack tracker git \https://github.com/b-on-g/tracker.git
 pack builderui git \https://github.com/b-on-g/builderui.git
 pack music git \https://github.com/b-on-g/music.git
+pack journal git \https://github.com/b-on-g/journal.git
+pack figmol git \https://github.com/b-on-g/figmol.git

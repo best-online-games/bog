@@ -228,20 +228,3 @@ forge/**/-view.tree/
 forge/**/-node/
 forge/**/-css/
 
-
-!figmol/
-!figmol/**/
-!figmol/**/*.tree
-!figmol/**/*.ts
-!figmol/**/*.html
-!figmol/**/*.svg
-!figmol/**/*.json
-!figmol/**/*.md
-!figmol/**/*.yml
-!figmol/**/*.mjs
-!figmol/**/Dockerfile
-!figmol/.gitignore
-!figmol/.gitattributes
-# Re-ignore build output inside figmol
-figmol/**/-/
-figmol/**/-view.tree/

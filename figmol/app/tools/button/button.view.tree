@@ -1,7 +1,0 @@
-$bog_figmol_app_tools_button $mol_button_minor
-	tool \
-	active false
-	attr *
-		^
-		figmol_tool <= tool
-		figmol_active <= active

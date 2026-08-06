@@ -1,9 +1,0 @@
-$bog_figmol_app_inspector_field $mol_view
-	title \
-	content /
-	sub /
-		<= Title $mol_view
-			sub /
-				<= title
-		<= Content $mol_view
-			sub <= content /
