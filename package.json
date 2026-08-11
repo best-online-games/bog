@@ -215,6 +215,7 @@
     "$bog_ui_app_breadcrumb",
     "$bog_ui_breadcrumb",
     "$mol_link",
+    "$mol_dom_safe",
     "$bog_ui_app_sidebar",
     "$mol_icon_home",
     "$mol_icon_account",
