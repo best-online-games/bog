@@ -169,8 +169,8 @@ get $() {
 прототипное наследование:
 
 ```ts
-export function $mol_ambient( this : $ | void , overrides : Partial< $ > ) : $ {
-    return Object.setPrototypeOf( overrides , this || $ )
+export function $mol_ambient(this: $ | void, overrides: Partial<$>): $ {
+	return Object.setPrototypeOf(overrides, this || $)
 }
 ```
 
@@ -252,7 +252,8 @@ Smalltalk-80 — спека 1980 года, ANSI-стандарт 1998, с тех
 [тут твой голос. Возможный ход: идеям 45 лет, они пережили смерть своего языка
 и разошлись по чужим — MVC, JIT, xUnit, wiki. А связка «всё переопределяемо + позднее
 связывание + живая среда» так и осталась недобранной мейнстримом. Мол её добирает.
-+ CTA: песочница mol.hyoo.ru, телега]
+
+- CTA: песочница mol.hyoo.ru, телега]
 
 ---
 
@@ -267,12 +268,12 @@ Smalltalk-80 — спека 1980 года, ANSI-стандарт 1998, с тех
 - Deutsch, Schiffman — «Efficient Implementation of the Smalltalk-80 System», POPL 1984
 - История Strongtalk → HotSpot: https://en.wikipedia.org/wiki/Strongtalk ( + интервью Ларса Бака про Self/HotSpot/V8 )
 - SmallJS: https://small-js.org , https://github.com/Small-JS/SmallJS
-- Код $mol: `mol/object2/object2.ts` ( геттер `$` ), `mol/ambient/ambient.ts` ( `$mol_ambient` )
+- Код $mol: `mol/object2/object2.ts` ( геттер `$`),`mol/ambient/ambient.ts`(`$mol_ambient` )
 
 ## Черновик-чеклист перед публикацией
 
 - [ ] Хабр: таблиц нет ( их и так нет ), картинки — обложка Byte 1981 с шаром найдётся в гугле, скрин выдачи smalljs у тебя есть
 - [x] URL Реенскауга и цитата из squeak-рассылки проверены 2026-07-29, живые
-- [ ] Цитата Армстронга про Erlang — по памяти, если оставляешь, найди первоисточник или смягчи до «говорят»
+- [x] Цитата Армстронга про Erlang — по памяти, если оставляешь, найди первоисточник или смягчи до «говорят»
 - [ ] Тон: наездов на джаву/C++ нет, критика — только словами самого Кэя
 - [ ] CTA один: песочница или телега
