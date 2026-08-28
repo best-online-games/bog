@@ -1,7 +1,0 @@
-$bog_ui_toast_manager $mol_view
-	toast_data /
-	Toast* $bog_ui_toast
-		message <= toast_message* \
-		type <= toast_type* \info
-		close? <=> toast_close*? null
-	sub <= toast_views /

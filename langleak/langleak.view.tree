@@ -1,9 +1,0 @@
-$bog_langleak $mol_view
-	title @ \Localized title
-	start? null
-	lang_toggle? null
-	sub /
-		<= Title $mol_view sub / <= title
-		<= Lang $mol_button_minor
-			click? <=> lang_toggle? null
-			sub / <= lang_label \EN

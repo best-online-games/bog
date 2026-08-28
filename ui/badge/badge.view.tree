@@ -1,9 +1,0 @@
-$bog_ui_badge $mol_view
-	label \
-	type \default
-	sub /
-		<= Label $mol_view
-			sub /
-				<= label
-	attr *
-		bog_ui_badge_type <= type

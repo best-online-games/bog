@@ -1,7 +1,0 @@
-include \/mol/offline/install
-deploy \/bog/forge/assets
-pack bog/builderui/router
-pack bog/meta
-pack mol/fetch
-pack mol/dom
-pack bog/forge/item

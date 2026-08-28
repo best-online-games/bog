@@ -1,8 +1,0 @@
-{
-	"$bog_feedback2_form_title": "Отзыв (один на пользователя)",
-	"$bog_feedback2_form_Entry_my_hint": "Ваш отзыв",
-	"$bog_feedback2_form_Contact_field_hint": "Контакт (необязательно)",
-	"$bog_feedback2_form_Entries_title": "Все отзывы",
-	"$bog_feedback2_form_Not_configured_message": "Форма ещё не настроена",
-	"$bog_feedback2_form_waiting_title": "Загрузка…"
-}

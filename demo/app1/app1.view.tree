@@ -1,4 +1,0 @@
-$bog_demo_app1 $mol_view
-	sub /
-		<= Button $bog_demo_app1_button
-		<= Heavy $bog_demo_app1_heavy

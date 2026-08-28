@@ -1,9 +1,0 @@
-$bog_feedback_demo $mol_example_small
-	title \Feedback
-	sub /
-		<= Preview $bog_feedback_form
-	tags /
-		\feedback
-		\form
-	aspects /
-		\UI\Feedback

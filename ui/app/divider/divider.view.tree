@@ -1,7 +1,0 @@
-$bog_ui_app_divider $mol_page
-	title \Divider
-	body /
-		<= Description $mol_view
-			sub /
-				<= description \Horizontal line to separate content.
-		<= Divider $bog_ui_divider
