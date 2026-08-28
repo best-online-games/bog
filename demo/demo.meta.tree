@@ -1,6 +1,0 @@
-include \/mol/app/demo
-include \/bog/qr/demo
-include \/bog/feedback/demo
-include \/bog/feedback2/demo
-include \/raggu/web/front/explorer/forcegraph/demo
-include \/bog/langleak/demo

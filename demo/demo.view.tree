@@ -1,4 +1,0 @@
-$bog_demo $mol_app_demo
-	menu_title \BOG Components
-	source_prefix \https://github.com/b-on-g/bog/tree/master/
-	sources_uri \https://github.com/b-on-g/bog/

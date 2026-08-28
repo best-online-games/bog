@@ -1,0 +1,4 @@
+$bog_demo_app1_heavy $mol_view
+	sub /
+		<= Chart $mol_plot_pane
+		<= Grid $mol_grid

@@ -1,0 +1,3 @@
+$bog_demo_app3 $mol_view
+	sub /
+		<= Borrowed $bog_demo_button
