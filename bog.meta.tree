@@ -75,3 +75,5 @@ pack ssg git \https://github.com/b-on-g/ssg.git
 pack weather git \https://github.com/b-on-g/weather.git
 pack copilot git \https://github.com/b-on-g/copilot.git
 pack bot git \https://github.com/b-on-g/bot.git
+pack tree git \https://github.com/b-on-g/three.git
+pack eve git \https://github.com/b-on-g/eve.git
