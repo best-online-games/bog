@@ -52,6 +52,7 @@
 	pack journal git \https://github.com/b-on-g/journal.git
 	pack figmol git \https://github.com/b-on-g/figmol.git
 	pack smalljs git \https://github.com/b-on-g/smalljs.git
+	pack api git \https://github.com/b-on-g/api.git
 \/bog/ui
 	namespace \bog\ui
 \/mol
