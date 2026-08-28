@@ -6,6 +6,7 @@ pack prof git \https://github.com/b-on-g/prof.git
 pack ainews git \https://github.com/b-on-g/ainews.git
 pack favicon git \https://github.com/b-on-g/favicon.git
 pack bhelper git \https://github.com/b-on-g/bhelper.git
+pack dobro git \https://github.com/b-on-g/dobro.git
 pack lk git \https://github.com/b-on-g/lk.git
 pack pazzle git \https://github.com/b-on-g/pazzle.git
 pack pay_server git \https://github.com/b-on-g/pay_server.git
@@ -17,6 +18,7 @@ pack mol_skill git \https://github.com/b-on-g/mol_skill.git
 pack tauri_mol_workflow_template git \https://github.com/b-on-g/tauri-mol-workflow-template.git
 pack mol_prerender_action git \https://github.com/b-on-g/mol-prerender-action.git
 pack quiz git \https://github.com/b-on-g/quiz.git
+pack docs git \https://github.com/b-on-g/docs.git
 pack blitz git \https://github.com/b-on-g/blitz.git
 pack wikilive git \https://github.com/b-on-g/WikiLive.git
 pack wiki git \https://github.com/b-on-g/wiki.git
