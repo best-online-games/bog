@@ -80,3 +80,4 @@ pack eve git \https://github.com/b-on-g/eve.git
 pack merch git \https://github.com/b-on-g/merch.git
 pack tox git \https://github.com/b-on-g/tox.git
 pack sert git \https://github.com/b-on-g/sert.git
+pack bg git \https://github.com/b-on-g/bg.git
