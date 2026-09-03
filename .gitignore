@@ -1,2 +1,13 @@
 -*
 .DS_Store
+lsp/mol.style/.gitignore
+lsp/mol.style/README.md
+lsp/mol.style/manifest.json
+lsp/mol.style/package-lock.json
+lsp/mol.style/package.json
+lsp/mol.style/panel.html
+lsp/mol.style/src/inspect.ts
+lsp/mol.style/src/lsp-client.ts
+lsp/mol.style/src/devtools.ts
+lsp/mol.style/src/panel.ts
+lsp/mol.style/tsconfig.json
