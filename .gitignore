@@ -1,10 +1,2 @@
-# Здесь живёт только реестр паков и общие файлы репозитория.
-# Всё остальное — отдельные репозитории, которые MAM клонирует по bog.meta.tree.
-*
-
-!.gitignore
-!.gitattributes
-!bog.meta.tree
-!404.html
-!LICENSE
-!README.md
+-*
+.DS_Store
